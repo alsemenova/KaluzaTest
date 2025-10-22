@@ -1,0 +1,30 @@
+{
+  "name": "kaluzatest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alsemenova/KaluzaTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alsemenova/KaluzaTest/issues"
+  },
+  "homepage": "https://github.com/alsemenova/KaluzaTest#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@types/node": "^24.9.1",
+    "axios": "^1.12.2",
+    "chai": "^6.2.0",
+    "eslint": "^9.38.0",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
