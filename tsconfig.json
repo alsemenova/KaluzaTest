@@ -6,5 +6,9 @@
         "esModuleInterop": true,
         "outDir": "dist"
     },
-    "include":["features/**/*.ts"]
+    "include":[
+        "features/**/*.ts",
+        "step_definitions/**/*.ts",
+        "src/**/*.ts"
+    ]
 }
