@@ -21,7 +21,7 @@ Then('The age is presented', async function (this: CustomWorld) {
 });
 
 Then('The age should be null', async function (this: CustomWorld) {
-  expect(this.result?.data).to.be.a('null');
+  expect(this.result?.data).to.be.null;
 });
 
 When('I send a request with missing parameter name', async function (this: CustomWorld) {
@@ -43,3 +43,12 @@ When('I send wrong request', async function (this: CustomWorld) {
 Then('Throw an Exeption', async function (this: CustomWorld) {
   expect(this.result?.error).to.exist;
 });
+
+Then(
+  'The result of the same request with name {string} should be the same',
+  async function (this: CustomWorld, name: string) {
+    const result2 = await this.client?.getAgeByName(name);
+    expect(this.result?.isSuccessful).to.be.equal(result2?.isSuccessful);
+    expect(this.result?.data).to.be.equal(result2?.data);
+  },
+);
