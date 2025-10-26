@@ -52,6 +52,5 @@ Feature: API tests for age estimation by name
   @positive
   Scenario: The same name returns consistent results
     Given The Agify API Client is available
-    When I send two requests with the same name "billybob"
-    Then Both results should be successful
-    And The age should be equal
+    When I send a request with name "billybob"
+    Then The result of the same request with name "billybob" should be the same
