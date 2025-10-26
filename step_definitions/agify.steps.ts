@@ -1,8 +1,6 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { CustomWorld } from '../src/support/world';
 import { expect } from 'chai';
-import { AxiosError } from 'axios';
-import { Result } from '../src/api/result';
 import { AgifyApiClient } from '../src/api/agifyApiClient';
 
 Given('The Agify API Client is available', async function (this: CustomWorld) {
