@@ -1,11 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { Result } from './result';
-import { error } from 'console';
 
 interface IPerson {
-  count: number;
+  count: number | null;
   name: string;
-  age: number;
+  age: number | null;
 }
 
 interface IErrorResponse {
