@@ -41,3 +41,17 @@ Feature: API tests for age estimation by name
     When I send wrong request
     Then The result should be Failed
     And Throw an Exeption
+
+  @negative
+  Scenario: Get age with a name containing special characters
+    Given The Agify API Client is available
+    When I send a request with name "@!#±§"
+    Then The result should be successful
+    And The age should be null
+
+  @positive
+  Scenario: The same name returns consistent results
+    Given The Agify API Client is available
+    When I send two requests with the same name "billybob"
+    Then Both results should be successful
+    And The age should be equal
