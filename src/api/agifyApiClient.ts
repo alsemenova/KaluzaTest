@@ -29,7 +29,11 @@ export class AgifyApiClient {
 
   private async getResponse(url: string): Promise<Result> {
     try {
-      const response = await axios.get<IPerson | IErrorResponse>(url);
+      const response = await axios.get<IPerson | IErrorResponse>(url, {
+        headers: {
+          'User-Agent': 'Kaluza API Client',
+        },
+      });
       if (response.data == null) {
         return new Result(false, undefined, 'Data is null');
       }
