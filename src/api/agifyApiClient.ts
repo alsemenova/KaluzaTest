@@ -22,9 +22,13 @@ export class AgifyApiClient {
 
     return await this.getResponse(url);
   }
+  async getLocalizedAgeByName(name: string | null, country_id: string | null): Promise<Result> {
+    const url =
+      name != undefined && name != null && country_id != null
+        ? `${this.baseUrl}?name=${encodeURIComponent(name)}&country_id=${encodeURIComponent(country_id)}`
+        : this.baseUrl;
 
-  async getNotFoundData(name: string | null): Promise<Result> {
-    return await this.getResponse(`${this.baseUrl}/notfounddata`);
+    return await this.getResponse(url);
   }
 
   private async getResponse(url: string): Promise<Result> {
