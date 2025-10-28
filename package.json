@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --config cucumber.js"
+    "test": "cucumber-js --config cucumber.js",
+    "test-report": "cucumber-js --config cucumber.js --publish"
   },
   "repository": {
     "type": "git",
