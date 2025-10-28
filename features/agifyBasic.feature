@@ -36,11 +36,11 @@ Feature: API tests for age estimation by name
     And The age should be null
 
   @negative
-  Scenario: Send wrong request
+  Scenario: Request to an invalid endpoint returns error
     Given The Agify API Client is available
     When I send wrong request
     Then The result should be Failed
-    And Throw an Exeption
+    And Throw an Exception
 
   @negative
   Scenario: Get age with a name containing special characters
