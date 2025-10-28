@@ -40,7 +40,7 @@ When('I send wrong request', async function (this: CustomWorld) {
   this.result = await this.client?.getAgeByName(null);
 });
 
-Then('Throw an Exeption', async function (this: CustomWorld) {
+Then('Throw an Exception', async function (this: CustomWorld) {
   expect(this.result?.error).to.exist;
 });
 
