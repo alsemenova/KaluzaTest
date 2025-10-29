@@ -26,27 +26,22 @@ Runtime: Node.js v22, NPM v10
 
 ## Project Structure
 
-KaluzaTest/
-├── features/ # BDD feature files written in Gherkin
-│ └── agifyBasic.feature # Scenarios describing API behavior
-│
-├── step_definitions/ # Step definitions for Cucumber
-│ └── agifyBasic.steps.ts # Code implementation of Gherkin steps
-│
-├── src/ # Main source code folder
-│ ├── api/ # API clients and models
-│ │ └── agifyApiClient.ts # Wrapper class for Agify API (handles requests)
-│ │
-│ ├── result.ts # Result model for handling success/error states
-│ │
-│ └── support/ # Cucumber test context and utilities
-│ └── world.ts # Custom World class storing client and response data
-│
-├── cucumber.js # Cucumber configuration file
-├── package.json # Project configuration, scripts, dependencies
-├── package-lock.json # Automatically generated dependency lock file
-├── tsconfig.json # TypeScript compiler configuration
-└── README.md # Project documentation
+📁 KaluzaTest
+┣ 📂 features
+┃ ┗ 📄 agifyBasic.feature
+┣ 📂 step_definitions
+┃ ┗ 📄 agifyBasic.steps.ts
+┣ 📂 src
+┃ ┣ 📂 api
+┃ ┃ ┣ 📄 agifyApiClient.ts
+┃ ┃ ┗ 📄 result.ts
+┃ ┗ 📂 support
+┃ ┗ 📄 world.ts
+┣ 📄 cucumber.js
+┣ 📄 package.json
+┣ 📄 package-lock.json
+┣ 📄 tsconfig.json
+┗ 📄 README.md
 
 # Steps
 
