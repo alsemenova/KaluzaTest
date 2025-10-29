@@ -26,6 +26,7 @@ Runtime: Node.js v22, NPM v10
 
 ## Project Structure
 
+```
 📁 KaluzaTest
 ┣ 📂 features
 ┃ ┗ 📄 agifyBasic.feature
@@ -42,6 +43,7 @@ Runtime: Node.js v22, NPM v10
 ┣ 📄 package-lock.json
 ┣ 📄 tsconfig.json
 ┗ 📄 README.md
+```
 
 # Steps
 
