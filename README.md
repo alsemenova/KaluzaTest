@@ -30,8 +30,12 @@ Runtime: Node.js v22, NPM v10
 📁 KaluzaTest
 ┣ 📂 features
 ┃ ┗ 📄 agifyBasic.feature
+┃ ┗ 📄 agifyLocalization.feature
+┃ ┗ 📄 agifyMultiple.feature
 ┣ 📂 step_definitions
 ┃ ┗ 📄 agifyBasic.steps.ts
+┃ ┗ 📄 agifyLocalization.steps.ts
+┃ ┗ 📄 agifyMultiple.steps.ts
 ┣ 📂 src
 ┃ ┣ 📂 api
 ┃ ┃ ┣ 📄 agifyApiClient.ts
@@ -83,3 +87,66 @@ This project tests only the Basic Usage endpoint of the Agify API.
 According to the official documentation, Agify provides additional APIs such as Localization, Batch Requests, and Multiple Inputs.
 However, since the technical test explicitly required testing the Basic Usage endpoint,
 only this part was implemented and validated in the test suite.
+
+## Additional API Coverage (Localization & Multiple Names)
+
+### 1. Localization (`country_id`)
+
+Agify supports improving prediction accuracy by specifying an optional `country_id` parameter (ISO 3166-1 alpha-2).  
+Additional tests were implemented to verify:
+
+- correct handling of valid country codes  
+- uppercase/lowercase behaviour  
+- empty or missing `country_id`  
+- malformed or numeric values  
+- correct propagation of `country_id` in the response  
+
+Files:
+## Additional API Coverage (Localization & Multiple Names)
+
+### 1. Localization (`country_id`)
+
+Agify supports improving prediction accuracy by specifying an optional `country_id` parameter (ISO 3166-1 alpha-2).  
+Additional tests were implemented to verify:
+
+- correct handling of valid country codes  
+- uppercase/lowercase behaviour  
+- empty or missing `country_id`  
+- malformed or numeric values  
+- correct propagation of `country_id` in the response  
+
+Files:
+features/agifyLocalization.feature
+step_definitions/agifyLocalization.steps.ts
+
+
+### 2. Multiple Names (Batch Requests)
+
+Agify allows estimating ages for up to **10 names in a single request** via `name[]` parameters.  
+A positive scenario was added to validate:
+
+- correct number of results  
+- matching of names in request and response  
+- correct response object structure  
+
+Files:
+features/agifyMultiple.feature
+step_definitions/agifyMultiple.steps.ts
+
+Additional test cases (e.g., invalid lists, >10 names, combined localization + batch) can be added if needed.
+
+## Summary
+
+This project demonstrates a clean and maintainable approach to API test automation using BDD practices.  
+It covers:
+
+- core API behaviour  
+- negative and edge-case handling  
+- localization responses  
+- multi-name (batch) behaviour  
+- modular and extensible architecture  
+
+The test suite is easy to extend and structured to support further API validation if required.
+
+
+
