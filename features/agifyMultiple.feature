@@ -16,3 +16,14 @@ Feature: API tests for age estimation by multiple name
       | matthew  |
       | jane     |
     Then The result in console log
+
+  @negativeM
+  Scenario: Get age for multiple empty names
+    Given The Agify API Client is available
+    When I send a request with 3 empty multiple names
+    Then The result should be successful
+    And The response should contain 3 results
+    And All names in the response should be empty
+    And All ages in the response should be null
+    And Each result should include name, age and count
+    Then The result in console log
