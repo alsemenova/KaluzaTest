@@ -37,9 +37,9 @@ export class AgifyApiClient {
 
     return await this.getResponse<ILocalizedPerson>(url);
   }
-  async getAgeByNameMultiple(name: string[] | null): Promise<Result<IPerson>> {
+  async getAgeByNameMultiple(name: string[] | null): Promise<Result<IPerson[]>> {
     if (!name || name.length === 0) {
-      return await this.getResponse<IPerson>(this.baseUrl);
+      return await this.getResponse<IPerson[]>(this.baseUrl);
     }
     const query = name.map((n) => `name[]=${encodeURIComponent(n)}`).join('&');
     const url =
@@ -47,7 +47,7 @@ export class AgifyApiClient {
         ? `${this.baseUrl}?${query}`
         : this.baseUrl;
 
-    return await this.getResponse<IPerson>(url);
+    return await this.getResponse<IPerson[]>(url);
   }
 
   private async getResponse<T>(url: string): Promise<Result<T>> {
