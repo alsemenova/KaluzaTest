@@ -5,12 +5,12 @@ import { AgifyApiClient, IPerson } from '../src/api/agifyApiClient';
 
 When(
   'I send a request with multiple names:',
-  async function (this: CustomWorld<IPerson>, nametable) {
-    const name = nametable
+  async function (this: CustomWorld<IPerson[]>, nametable) {
+    const names = nametable
       .raw()
       .slice(1)
       .map((row: string[]) => row[0]);
-    this.result = await this.client?.getAgeByNameMultiple(name);
+    this.result = await this.client?.getAgeByNameMultiple(names);
   },
 );
 
@@ -36,4 +36,24 @@ Then('The names in response should be:', function (this: CustomWorld<IPerson[]>,
   const actualName = this.result?.data?.map((item) => item.name);
   expect(actualName).to.have.members(expectedNames);
   expect(actualName?.length).to.equal(expectedNames.length);
+});
+
+When(
+  'I send a request with {int} empty multiple names',
+  async function (this: CustomWorld<IPerson[]>, count: number) {
+    const emptyNames = Array(count).fill('');
+    this.result = await this.client?.getAgeByNameMultiple(emptyNames);
+  },
+);
+
+Then('All names in the response should be empty', function (this: CustomWorld<IPerson[]>) {
+  this.result?.data?.forEach((item) => {
+    expect(item.name).to.be.empty;
+  });
+});
+
+Then('All ages in the response should be null', function (this: CustomWorld<IPerson[]>) {
+  this.result?.data?.forEach((item) => {
+    expect(item.age).to.be.null;
+  });
 });
